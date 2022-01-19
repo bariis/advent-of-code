@@ -31,16 +31,14 @@ def calc_unmarked_numbers(board):
 def solve():
     for number in numbers:
         for board in all_boards:
-            total = 0
             for row in range(len(board)):
                 for col in range(len(board)):
                     if number == board[row][col]:
                         temp = board[row][col]
                         board[row][col] = -1
-                        total += 1
-                        if is_marked(board):
-                            total_value = calc_unmarked_numbers(board)
-                            return total_value * temp
+            if is_marked(board):
+                total_value = calc_unmarked_numbers(board)
+                return total_value * temp
                                 
 print(solve())
     
